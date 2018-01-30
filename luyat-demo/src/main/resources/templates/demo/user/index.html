@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户管理</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="Pragma" content="no-cache" /> 
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="/plugs/bootstrap/bootstrap.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapTables/bootstrap-table.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapDatetimepicker/bootstrap-datetimepicker.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapSelect/bootstrap-select.css"/>
+</head>
+<body>
+<table id="table"></table>
+</body>
+<script src="/plugs/bootstrap/jquery.js"></script>
+<script src="/plugs/bootstrap/bootstrap.js"></script>
+<script src="/plugs/bootstrapTables/bootstrap-table.js"></script>
+<script src="/plugs/bootstrapTables/bootstrap-table-zh-CN.js"></script>
+<script src="/plugs/bootstrapDatetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="/plugs/bootstrapSelect/bootstrap-select.js"></script>
+<script src="/js/ajaxfileupload.js"></script>
+<script src="/js/luyat-common.js"></script>
+<script type="text/javascript">
+(function($){
+	var oTableInit = new Object();
+	oTableInit.Init = function () {
+		$('#table').bootstrapTable({
+	        url: '/demo/user/data',         //请求后台的URL（*）
+	        method: 'POST',
+	        contentType:'application/x-www-form-urlencoded',
+	        queryParams:oTableInit.queryParams,
+	        height: getHeight(),
+			striped: true,
+			search: true,
+			showRefresh: true,
+			showColumns: true,
+			minimumCountColumns: 2,
+			clickToSelect: true,
+			detailView: true,
+			detailFormatter: 'detailFormatter',
+			pagination: true,
+			paginationLoop: false,
+			sidePagination: 'server',
+			silentSort: false,
+			smartDisplay: false,
+			escape: true,
+			searchOnEnterKey: true,
+			idField: 'user_id',
+			maintainSelected: true,
+			toolbar: '#toolbar',
+	        columns: [
+                {field: 'ck', checkbox: true},
+                {field: 'user_id', visible:false},
+                {field: 'customer_ids', visible:false},
+                {field: 'company_ids', visible:false},
+                {field: 'username', title: '帐号'},
+                {field: 'realname', title: '姓名'},
+                {field: 'avatar', title: '头像', align: 'center', formatter: function(value, row, index) {
+                    if (!value || value == null || value == '') {
+                        return value;
+                    } else {
+                        return '<img src="'+ value.replace("fs:",'http://eric.yx3195.com') + '" style="width:20px;height:20px;"/>';
+                    }
+                }},
+                {field: 'email', title: '邮箱'},
+                {field: 'locked', title: '状态', sortable: true, align: 'center', formatter: function(value, row, index){
+                    if (value == 1) {
+                        return '<span class="label label-default role_status">锁定</span>';
+                    } else {
+                        return '<span class="label label-success role_status">正常</span>';
+                    }
+                }},
+	        ]
+	    });
+	};
+	oTableInit.queryParams = function (params) {
+        var temp = {
+            limit: params.limit,
+            page: params.offset,
+            sord:params.order,
+            sidx:params.sort?params.sort:'UPDATEDATE'
+        };
+        return temp;
+    };
+    oTableInit.Init();
+})(jQuery);
+</script>
+</html>

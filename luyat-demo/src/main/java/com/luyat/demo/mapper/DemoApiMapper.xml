@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.luyat.demo.dao.DemoApiMapper" >
+	<select id="selectUserByName" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT * FROM upms_user t WHERE t.`username` = #{username}
+	</select>
+	<select id="selectPermissionByName" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT * FROM upms_permission t WHERE t.`permission_id` IN
+		(
+			SELECT t.`permission_id` FROM upms_role_permission t WHERE t.`role_id` IN
+			(
+				SELECT t.`role_id` FROM upms_user_role t WHERE t.`user_id` = (SELECT t.`user_id` FROM upms_user t WHERE t.`username` = #{username})
+			)
+		)
+	</select>
+	<select id="selectRoleByName" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT a.* FROM upms_user_role t
+		LEFT JOIN upms_role a ON a.`role_id` = t.`role_id`
+		WHERE t.`user_id` = (SELECT t.`user_id` FROM upms_user t WHERE t.`username` = #{username})
+	</select>
+	<select id="selectMenusByName" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT * FROM upms_permission t WHERE t.`permission_id` IN
+		(
+			SELECT t.`permission_id` FROM upms_role_permission t WHERE t.`role_id` IN
+			(
+				SELECT t.`role_id` FROM upms_user_role t WHERE t.`user_id` = (SELECT t.`user_id` FROM upms_user t WHERE t.`username` = 'luyat123')
+			)
+		) AND
+		t.type = 2
+	</select>
+</mapper>

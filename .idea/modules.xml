@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/luyat.iml" filepath="$PROJECT_DIR$/luyat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-acm/luyat-acm.iml" filepath="$PROJECT_DIR$/luyat-acm/luyat-acm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-api/luyat-api.iml" filepath="$PROJECT_DIR$/luyat-api/luyat-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-auths/luyat-auths.iml" filepath="$PROJECT_DIR$/luyat-auths/luyat-auths.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-common/luyat-common.iml" filepath="$PROJECT_DIR$/luyat-common/luyat-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-demo/luyat-demo.iml" filepath="$PROJECT_DIR$/luyat-demo/luyat-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-eureka/luyat-eureka.iml" filepath="$PROJECT_DIR$/luyat-eureka/luyat-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-shiro/luyat-shiro.iml" filepath="$PROJECT_DIR$/luyat-shiro/luyat-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-ssn/luyat-ssn.iml" filepath="$PROJECT_DIR$/luyat-ssn/luyat-ssn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-utils/luyat-utils.iml" filepath="$PROJECT_DIR$/luyat-utils/luyat-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/luyat-web/luyat-web.iml" filepath="$PROJECT_DIR$/luyat-web/luyat-web.iml" />
+    </modules>
+  </component>
+</project>

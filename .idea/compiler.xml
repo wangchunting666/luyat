@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="luyat-acm" />
+        <module name="luyat-api" />
+        <module name="luyat-auths" />
+        <module name="luyat-common" />
+        <module name="luyat-demo" />
+        <module name="luyat-eureka" />
+        <module name="luyat-shiro" />
+        <module name="luyat-ssn" />
+        <module name="luyat-utils" />
+        <module name="luyat-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="luyat" target="1.8" />
+      <module name="luyat-acm" target="1.8" />
+      <module name="luyat-api" target="1.8" />
+      <module name="luyat-auths" target="1.8" />
+      <module name="luyat-common" target="1.8" />
+      <module name="luyat-demo" target="1.8" />
+      <module name="luyat-eureka" target="1.8" />
+      <module name="luyat-shiro" target="1.8" />
+      <module name="luyat-ssn" target="1.8" />
+      <module name="luyat-utils" target="1.8" />
+      <module name="luyat-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
